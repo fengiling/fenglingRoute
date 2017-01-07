@@ -1,0 +1,14 @@
+called: D:\cygwin64\bin\gcc.exe
+	D:\Workspace\fenglingTunnel
+	D:\cygwin64\bin\gcc.exe
+	-I.
+	-fPIC
+	-g
+	-o
+	Cmain.o
+	Cmain.c
+	-c
+	-ID:\cygwin64\home\chenzifeng/soft/fenglingTunnel
+	-ID:\cygwin64\home\chenzifeng/soft/fenglingTunnel/include
+	-I/usr/include
+

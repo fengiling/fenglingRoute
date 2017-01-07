@@ -79,7 +79,7 @@ int CAServerInit() {
         ERR_print_errors_fp(stdout);
         SSL_CTX_free(ctx);
         return 0;
-    } else printf("load server.csr successful!\n");
+    } else printf("load server.pem successful!\n");
     memset(buf, 0x00, sizeof (buf));
     sprintf(buf, "%s%s", g_global_conf.WorkPath, g_global_conf.Skey);
     if ((SSL_CTX_use_PrivateKey_file(ctx, buf, SSL_FILETYPE_PEM)) <= 0) {
@@ -119,7 +119,8 @@ int CAServerInit() {
         //读取  
         char line[PKG_BODY_LEN];
         memset(line, 0x00, sizeof (line));
-        SSL_read(ssl, line, 6);
+        SSL_read(ssl, line, 10);
+        debug(g_log, "line:[%s]\n", line);
         //正常处理HTTP协议  
         if (memcmp(line, "FL", 2) != 0) {
             continue;
@@ -134,6 +135,7 @@ int CAServerInit() {
         }
         memset(line, 0x00, sizeof (line));
         SSL_read(ssl, line, g_pkgBodyLen);
+        debug(g_log, "line:[%s]\n", line);
         // 解析报文设置FLRoute
         Subdomian = strtok(line, "-");
         stotal = strtok(NULL, "-");
@@ -162,13 +164,12 @@ int CARun() {
     int currentRec;
     pid_t childPid;
     char buf[BUF_SIZE + 1];
+    int (*callback)(char *, int, int, void *) = &password_callback;
 
-    /* Set up the library */
     SSL_library_init(); //一定要有，初始化ssl库  
     ERR_load_BIO_strings();
     SSL_load_error_strings();
     OpenSSL_add_all_algorithms();
-
     /* Set up the SSL context */
 
     ctx = SSL_CTX_new(SSLv23_method());
@@ -183,10 +184,34 @@ int CARun() {
         SSL_CTX_free(ctx);
         return 0;
     }
+    //    debug(g_log, "\nLoading certificates...\n");
+    //    SSL_CTX_set_default_passwd_cb(ctx, callback);
+    //    memset(buf, 0x00, sizeof (buf));
+    //    sprintf(buf, "%s%s", g_global_conf.WorkPath, "/client.pem");
+    //    if (!SSL_CTX_use_certificate_file(ctx, buf, SSL_FILETYPE_PEM)) {
+    //        ERR_print_errors_fp(stdout);
+    //        SSL_CTX_free(ctx);
+    //        return 0;
+    //    } else printf("load server.csr successful!\n");
+    //    memset(buf, 0x00, sizeof (buf));
+    //    sprintf(buf, "%s%s", g_global_conf.WorkPath, "/client.key");
+    //    if ((SSL_CTX_use_PrivateKey_file(ctx, buf, SSL_FILETYPE_PEM)) <= 0) {
+    //        printf("use private key failed!\n\n");
+    //        ERR_print_errors_fp(stdout);
+    //        SSL_CTX_free(ctx);
+    //        return 0;
+    //    }
 
+    //    memset(buf, 0x00, sizeof (buf));
+    //    sprintf(buf, "%s%s", g_global_conf.WorkPath, "/client.pem");
+    //    if (!SSL_CTX_use_certificate_file(ctx, buf, SSL_FILETYPE_PEM) || 
+    //            !SSL_CTX_use_PrivateKey_file(ctx, buf, SSL_FILETYPE_PEM) || 
+    //            !SSL_CTX_check_private_key(ctx)) {
+    //        fprintf(stderr, "Error setting up SSL_CTX\n");
+    //        ERR_print_errors_fp(stderr);
+    //        return 0;
+    //    }
     /* Setup the connection */
-
-    sslbio = BIO_new_ssl_connect(ctx); //建立ssl类型的bio  
 
     for (;;) {
         if ((currentRec = Cpool_monitor()) < 0) {
@@ -205,6 +230,10 @@ int CARun() {
                 /* zwm, 20060810, 屏蔽子进程的跟踪*/
                 signal(SIGCHLD, SIG_IGN);
                 signal(SIGCLD, SIG_IGN);
+
+                /* Set up the library */
+
+                sslbio = BIO_new_ssl_connect(ctx); //建立ssl类型的bio  
 
                 /* Set the SSL_MODE_AUTO_RETRY flag */
 

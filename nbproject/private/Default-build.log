@@ -1,0 +1,274 @@
+gcc -I.  -fPIC -g -o Cmain.o  Cmain.c -c -ID:\cygwin64\home\chenzifeng/soft/fenglingTunnel -ID:\cygwin64\home\chenzifeng/soft/fenglingTunnel/include -I/usr/include 
+Cmain.c:1:0: warning: -fPIC ignored for target (all code is position independent)
+ /*
+ ^
+In file included from /usr/include/pthread.h:17:0,
+                 from include/fenglingLog.h:4,
+                 from Cmain.c:20:
+\mingw\include/time.h:102:8: error: redefinition of 'struct timespec'
+ struct timespec
+        ^
+In file included from /usr/include/sys/sched.h:24:0,
+                 from /usr/include/sched.h:24,
+                 from /usr/include/pthread.h:16,
+                 from include/fenglingLog.h:4,
+                 from Cmain.c:20:
+/usr/include/sys/_timespec.h:44:8: note: originally defined here
+ struct timespec {
+        ^
+In file included from include/fenglingLog.h:4:0,
+                 from Cmain.c:20:
+/usr/include/pthread.h:70:27: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_destroy (pthread_attr_t *);
+                           ^
+/usr/include/pthread.h:71:40: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getdetachstate (const pthread_attr_t *, int *);
+                                        ^
+/usr/include/pthread.h:72:38: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getguardsize (const pthread_attr_t *, size_t *);
+                                      ^
+/usr/include/pthread.h:73:41: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getinheritsched (const pthread_attr_t *, int *);
+                                         ^
+/usr/include/pthread.h:74:39: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getschedparam (const pthread_attr_t *, struct sched_param *);
+                                       ^
+/usr/include/pthread.h:75:40: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getschedpolicy (const pthread_attr_t *, int *);
+                                        ^
+/usr/include/pthread.h:76:34: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getscope (const pthread_attr_t *, int *);
+                                  ^
+/usr/include/pthread.h:77:34: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getstack (const pthread_attr_t *, void **, size_t *);
+                                  ^
+/usr/include/pthread.h:78:38: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_getstackaddr (const pthread_attr_t *, void **)
+                                      ^
+/usr/include/pthread.h:80:24: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_init (pthread_attr_t *);
+                        ^
+/usr/include/pthread.h:81:34: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_setdetachstate (pthread_attr_t *, int);
+                                  ^
+/usr/include/pthread.h:82:32: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_setguardsize (pthread_attr_t *, size_t);
+                                ^
+/usr/include/pthread.h:83:35: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_setinheritsched (pthread_attr_t *, int);
+                                   ^
+/usr/include/pthread.h:84:33: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_setschedparam (pthread_attr_t *, const struct sched_param *);
+                                 ^
+/usr/include/pthread.h:85:34: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_setschedpolicy (pthread_attr_t *, int);
+                                  ^
+/usr/include/pthread.h:86:28: error: unknown type name 'pthread_attr_t'
+ int pthread_attr_setscope (pthread_attr_t *, int);
+                            ^
+/usr/include/pthread.h:122:29: error: unknown type name 'pthread_cond_t'
+ int pthread_cond_broadcast (pthread_cond_t *);
+                             ^
+/usr/include/pthread.h:123:27: error: unknown type name 'pthread_cond_t'
+ int pthread_cond_destroy (pthread_cond_t *);
+                           ^
+/usr/include/pthread.h:124:24: error: unknown type name 'pthread_cond_t'
+ int pthread_cond_init (pthread_cond_t *, const pthread_condattr_t *);
+                        ^
+/usr/include/pthread.h:124:48: error: unknown type name 'pthread_condattr_t'
+ int pthread_cond_init (pthread_cond_t *, const pthread_condattr_t *);
+                                                ^
+/usr/include/pthread.h:125:26: error: unknown type name 'pthread_cond_t'
+ int pthread_cond_signal (pthread_cond_t *);
+                          ^
+/usr/include/pthread.h:126:29: error: unknown type name 'pthread_cond_t'
+ int pthread_cond_timedwait (pthread_cond_t *,
+                             ^
+/usr/include/pthread.h:127:8: error: unknown type name 'pthread_mutex_t'
+        pthread_mutex_t *, const struct timespec *);
+        ^
+/usr/include/pthread.h:128:24: error: unknown type name 'pthread_cond_t'
+ int pthread_cond_wait (pthread_cond_t *, pthread_mutex_t *);
+                        ^
+/usr/include/pthread.h:128:42: error: unknown type name 'pthread_mutex_t'
+ int pthread_cond_wait (pthread_cond_t *, pthread_mutex_t *);
+                                          ^
+/usr/include/pthread.h:129:31: error: unknown type name 'pthread_condattr_t'
+ int pthread_condattr_destroy (pthread_condattr_t *);
+                               ^
+/usr/include/pthread.h:130:38: error: unknown type name 'pthread_condattr_t'
+ int pthread_condattr_getclock (const pthread_condattr_t *, clockid_t *);
+                                      ^
+/usr/include/pthread.h:130:60: error: unknown type name 'clockid_t'
+ int pthread_condattr_getclock (const pthread_condattr_t *, clockid_t *);
+                                                            ^
+/usr/include/pthread.h:131:40: error: unknown type name 'pthread_condattr_t'
+ int pthread_condattr_getpshared (const pthread_condattr_t *, int *);
+                                        ^
+/usr/include/pthread.h:132:28: error: unknown type name 'pthread_condattr_t'
+ int pthread_condattr_init (pthread_condattr_t *);
+                            ^
+/usr/include/pthread.h:133:32: error: unknown type name 'pthread_condattr_t'
+ int pthread_condattr_setclock (pthread_condattr_t *, clockid_t);
+                                ^
+/usr/include/pthread.h:133:54: error: unknown type name 'clockid_t'
+ int pthread_condattr_setclock (pthread_condattr_t *, clockid_t);
+                                                      ^
+/usr/include/pthread.h:134:34: error: unknown type name 'pthread_condattr_t'
+ int pthread_condattr_setpshared (pthread_condattr_t *, int);
+                                  ^
+/usr/include/pthread.h:136:21: error: unknown type name 'pthread_t'
+ int pthread_create (pthread_t *, const pthread_attr_t *,
+                     ^
+/usr/include/pthread.h:136:40: error: unknown type name 'pthread_attr_t'
+ int pthread_create (pthread_t *, const pthread_attr_t *,
+                                        ^
+/usr/include/pthread.h:141:49: error: expected ')' before '*' token
+ int pthread_getcpuclockid (pthread_t, clockid_t *);
+                                                 ^
+/usr/include/pthread.h:142:39: error: expected ')' before 'int'
+ int pthread_getschedparam (pthread_t, int *, struct sched_param *);
+                                       ^
+/usr/include/pthread.h:144:30: error: expected ')' before 'void'
+ int pthread_join (pthread_t, void **);
+                              ^
+/usr/include/pthread.h:145:25: error: unknown type name 'pthread_key_t'
+ int pthread_key_create (pthread_key_t *, void (*)(void *));
+                         ^
+/usr/include/pthread.h:149:28: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_destroy (pthread_mutex_t *);
+                            ^
+/usr/include/pthread.h:150:41: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_getprioceiling (const pthread_mutex_t *, int *);
+                                         ^
+/usr/include/pthread.h:151:25: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_init (pthread_mutex_t *, const pthread_mutexattr_t *);
+                         ^
+/usr/include/pthread.h:151:50: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutex_init (pthread_mutex_t *, const pthread_mutexattr_t *);
+                                                  ^
+/usr/include/pthread.h:152:25: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_lock (pthread_mutex_t *);
+                         ^
+/usr/include/pthread.h:153:35: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_setprioceiling (pthread_mutex_t *, int, int *);
+                                   ^
+/usr/include/pthread.h:154:28: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_trylock (pthread_mutex_t *);
+                            ^
+/usr/include/pthread.h:155:27: error: unknown type name 'pthread_mutex_t'
+ int pthread_mutex_unlock (pthread_mutex_t *);
+                           ^
+/usr/include/pthread.h:156:32: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_destroy (pthread_mutexattr_t *);
+                                ^
+/usr/include/pthread.h:157:45: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_getprioceiling (const pthread_mutexattr_t *, int *);
+                                             ^
+/usr/include/pthread.h:158:42: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_getprotocol (const pthread_mutexattr_t *, int *);
+                                          ^
+/usr/include/pthread.h:159:41: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_getpshared (const pthread_mutexattr_t *, int *);
+                                         ^
+/usr/include/pthread.h:160:38: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_gettype (const pthread_mutexattr_t *, int *);
+                                      ^
+/usr/include/pthread.h:161:29: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_init (pthread_mutexattr_t *);
+                             ^
+/usr/include/pthread.h:162:39: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_setprioceiling (pthread_mutexattr_t *, int);
+                                       ^
+/usr/include/pthread.h:163:36: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_setprotocol (pthread_mutexattr_t *, int);
+                                    ^
+/usr/include/pthread.h:164:35: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_setpshared (pthread_mutexattr_t *, int);
+                                   ^
+/usr/include/pthread.h:165:32: error: unknown type name 'pthread_mutexattr_t'
+ int pthread_mutexattr_settype (pthread_mutexattr_t *, int);
+                                ^
+/usr/include/pthread.h:168:27: error: unknown type name 'pthread_spinlock_t'
+ int pthread_spin_destroy (pthread_spinlock_t *);
+                           ^
+/usr/include/pthread.h:169:24: error: unknown type name 'pthread_spinlock_t'
+ int pthread_spin_init (pthread_spinlock_t *, int);
+                        ^
+/usr/include/pthread.h:170:24: error: unknown type name 'pthread_spinlock_t'
+ int pthread_spin_lock (pthread_spinlock_t *);
+                        ^
+/usr/include/pthread.h:171:27: error: unknown type name 'pthread_spinlock_t'
+ int pthread_spin_trylock (pthread_spinlock_t *);
+                           ^
+/usr/include/pthread.h:172:26: error: unknown type name 'pthread_spinlock_t'
+ int pthread_spin_unlock (pthread_spinlock_t *);
+                          ^
+/usr/include/pthread.h:175:29: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_destroy (pthread_rwlock_t *rwlock);
+                             ^
+/usr/include/pthread.h:176:26: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_init (pthread_rwlock_t *rwlock, const pthread_rwlockattr_t *attr);
+                          ^
+/usr/include/pthread.h:176:58: error: unknown type name 'pthread_rwlockattr_t'
+ int pthread_rwlock_init (pthread_rwlock_t *rwlock, const pthread_rwlockattr_t *attr);
+                                                          ^
+/usr/include/pthread.h:177:28: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_rdlock (pthread_rwlock_t *rwlock);
+                            ^
+/usr/include/pthread.h:178:31: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_tryrdlock (pthread_rwlock_t *rwlock);
+                               ^
+/usr/include/pthread.h:179:28: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_wrlock (pthread_rwlock_t *rwlock);
+                            ^
+/usr/include/pthread.h:180:31: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_trywrlock (pthread_rwlock_t *rwlock);
+                               ^
+/usr/include/pthread.h:181:28: error: unknown type name 'pthread_rwlock_t'
+ int pthread_rwlock_unlock (pthread_rwlock_t *rwlock);
+                            ^
+/usr/include/pthread.h:182:30: error: unknown type name 'pthread_rwlockattr_t'
+ int pthread_rwlockattr_init (pthread_rwlockattr_t *rwlockattr);
+                              ^
+/usr/include/pthread.h:183:42: error: unknown type name 'pthread_rwlockattr_t'
+ int pthread_rwlockattr_getpshared (const pthread_rwlockattr_t *attr,
+                                          ^
+/usr/include/pthread.h:185:36: error: unknown type name 'pthread_rwlockattr_t'
+ int pthread_rwlockattr_setpshared (pthread_rwlockattr_t *attr, int pshared);
+                                    ^
+/usr/include/pthread.h:186:33: error: unknown type name 'pthread_rwlockattr_t'
+ int pthread_rwlockattr_destroy (pthread_rwlockattr_t *rwlockattr);
+                                 ^
+/usr/include/pthread.h:188:19: error: unknown type name 'pthread_once_t'
+ int pthread_once (pthread_once_t *, void (*)(void));
+                   ^
+/usr/include/pthread.h:195:1: error: unknown type name 'pthread_t'
+ pthread_t pthread_self (void);
+ ^
+/usr/include/pthread.h:198:39: error: expected ')' before 'int'
+ int pthread_setschedparam (pthread_t, int, const struct sched_param *);
+                                       ^
+/usr/include/pthread.h:199:38: error: expected ')' before 'int'
+ int pthread_setschedprio (pthread_t, int);
+                                      ^
+/usr/include/pthread.h:200:41: error: expected ')' before 'const'
+ int pthread_setspecific (pthread_key_t, const void *);
+                                         ^
+/usr/include/pthread.h:205:51: error: expected ')' before '*' token
+ int pthread_getattr_np (pthread_t, pthread_attr_t *);
+                                                   ^
+/usr/include/pthread.h:206:23: error: unknown type name 'pthread_t'
+ int pthread_sigqueue (pthread_t *, int, const union sigval);
+                       ^
+In file included from Cmain.c:20:0:
+include/fenglingLog.h:15:5: error: unknown type name 'pthread_mutex_t'
+     pthread_mutex_t lock;
+     ^
+In file included from Cmain.c:23:0:
+include/fenglingShm.h:21:27: fatal error: openssl/ssl.h: No such file or directory
+ #include <openssl/ssl.h>  
+                           ^
+compilation terminated.
+Makefile:34: recipe for target 'Cmain.o' failed
+make: *** [Cmain.o] Error 1

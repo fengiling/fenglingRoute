@@ -108,6 +108,8 @@ int SetFLRoute(char* Subdomian, SSL *cli_sock, int total) {
     int index, initindex, ret;
     initindex = index = keyToIndex(Subdomian);
 
+    debug(g_log, "Subdomian key is:[%d]\n", initindex);
+
     sem_p(semid); /*P操作*/
     while (1) {
         if (strlen(pFLRoute[index].subdomain) == 0) {
@@ -133,6 +135,7 @@ int SetFLRoute(char* Subdomian, SSL *cli_sock, int total) {
                 pFLRoute[index].total = total;
                 pFLRoute[index].fd[pFLRoute[index].nowcounts] = cli_sock;
                 pFLRoute[index].nowcounts++;
+                break;
             } else {
                 index++;
                 if (index == MAXSUBDOMAIN)index = 0;
